@@ -9,7 +9,25 @@ type NewsConfiguration = {
 
 type Slot = 1 | 2 | 3;
 
-type Language = 'en' | 'de' | 'fr' | 'es' | 'it' | 'pt' | 'ru' | 'pl' | 'ja' | 'ko' | 'zh';
+type Language =
+  | 'en'
+  | 'tag'
+  | 'fr'
+  | 'it'
+  | 'de'
+  | 'es'
+  | 'ja'
+  | 'nl'
+  | 'ko'
+  | 'zh-cn'
+  | 'zh-tw'
+  | 'pt'
+  | 'pl'
+  | 'ru'
+  | 'en-gb'
+  | 'fr-ca'
+  | 'es-419'
+  | 'es-mx';
 
 type NewsText = {
   title: string;
