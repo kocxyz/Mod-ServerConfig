@@ -1,4 +1,3 @@
-/// <reference path="../node_modules/knockoutcity-mod-loader/types/sandbox-api.d.ts" />
 import logging from 'logging';
 import config from 'config';
 import database from 'database';

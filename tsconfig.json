@@ -1,11 +1,13 @@
 {
   "compilerOptions": {
     "module": "ES6",
+    "moduleResolution": "Bundler",
     "target": "ES2020",
     "strict": true,
     "alwaysStrict": true,
     "allowSyntheticDefaultImports": true,
-    "outDir": "./dist"
+    "outDir": "./dist",
+    "skipLibCheck": true
   },
-  "include": ["src/*"]
+  "include": ["src/*", "env.d.ts"]
 }
