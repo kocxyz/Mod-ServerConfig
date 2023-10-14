@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 devDependencies:
+  knockoutcity-mod-loader:
+    specifier: link:../KnockoutCity-Mod-Loader
+    version: link:../KnockoutCity-Mod-Loader
   typescript:
     specifier: ^5.2.2
     version: 5.2.2

@@ -2,12 +2,12 @@
   "name": "knockoutcity-mod-serverconfig",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "author": "Tandashi",
   "scripts": {},
   "keywords": [],
-  "author": "",
   "license": "ISC",
   "devDependencies": {
+    "knockoutcity-mod-loader": "^1.0.0-alpha.1",
     "typescript": "^5.2.2"
   }
 }
