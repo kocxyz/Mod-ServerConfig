@@ -78,86 +78,29 @@ function readTunablesConfiguration(): TunablesConfiguration {
 }
 
 export function configureTunables() {
+  logging.info('Configuring Tunables');
+
   const configuration = readTunablesConfiguration();
+  const tunables = {
+    k_backend_tunable_max_crew_members: configuration.social.max_members_per_crew,
+    k_backend_tunable_max_crew_invites: configuration.social.max_pending_crew_invites,
+    k_backend_tunable_max_friends: configuration.social.max_friends_per_user,
+    k_backend_tunable_max_friend_requests: configuration.social.max_pending_friend_requests,
+    k_backend_tunable_max_blocks: configuration.social.max_blocks_per_user,
+    k_backend_tunable_solo_inactivity_seconds: configuration.inactivity.solo_inactivity_seconds,
+    k_backend_tunable_group_inactivity_seconds: configuration.inactivity.group_inactivity_seconds,
+    k_backend_tunable_match_xp_multiplier: configuration.matchmaking.match_xp_multiplier,
+    k_backend_tunable_quickplay_bots_start_seconds: configuration.matchmaking.quickplay_bots_start_seconds,
+  };
 
-  database.stats_global.update({
-    where: {
-      key: 'k_backend_tunable_max_crew_members',
-    },
-    data: {
-      value: configuration.social.max_members_per_crew,
-    },
-  });
-
-  database.stats_global.update({
-    where: {
-      key: 'k_backend_tunable_max_crew_invites',
-    },
-    data: {
-      value: configuration.social.max_pending_crew_invites,
-    },
-  });
-
-  database.stats_global.update({
-    where: {
-      key: 'k_backend_tunable_max_friends',
-    },
-    data: {
-      value: configuration.social.max_friends_per_user,
-    },
-  });
-
-  database.stats_global.update({
-    where: {
-      key: 'k_backend_tunable_max_friend_requests',
-    },
-    data: {
-      value: configuration.social.max_pending_friend_requests,
-    },
-  });
-
-  database.stats_global.update({
-    where: {
-      key: 'k_backend_tunable_max_blocks',
-    },
-    data: {
-      value: configuration.social.max_blocks_per_user,
-    },
-  });
-
-  database.stats_global.update({
-    where: {
-      key: 'k_backend_tunable_solo_inactivity_seconds',
-    },
-    data: {
-      value: configuration.inactivity.solo_inactivity_seconds,
-    },
-  });
-
-  database.stats_global.update({
-    where: {
-      key: 'k_backend_tunable_group_inactivity_seconds',
-    },
-    data: {
-      value: configuration.inactivity.group_inactivity_seconds,
-    },
-  });
-
-  database.stats_global.update({
-    where: {
-      key: 'k_backend_tunable_match_xp_multiplier',
-    },
-    data: {
-      value: configuration.matchmaking.match_xp_multiplier,
-    },
-  });
-
-  database.stats_global.update({
-    where: {
-      key: 'k_backend_tunable_quickplay_bots_start_seconds',
-    },
-    data: {
-      value: configuration.matchmaking.quickplay_bots_start_seconds,
-    },
+  Object.entries(tunables).forEach(([key, value]) => {
+    database.stats_global.update({
+      where: {
+        key: key,
+      },
+      data: {
+        value: value,
+      },
+    });
   });
 }
