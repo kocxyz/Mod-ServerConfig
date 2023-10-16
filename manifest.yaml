@@ -1,8 +1,9 @@
 name: server-config
 description: A mod for better server configuration
 author: Tandashi
-
 version: 1.0.0
+
+type: server-only
 
 entrypoint: dist/index.js
 
