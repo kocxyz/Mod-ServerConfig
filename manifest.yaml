@@ -1,7 +1,7 @@
 name: server-config
 description: A mod for better server configuration
 author: Tandashi
-version: 1.0.0-alpha.1
+version: 1.0.0-alpha.2
 
 type: server-only
 
