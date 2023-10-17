@@ -125,13 +125,15 @@ function readNewsConfiguration(): NewsConfiguration {
 }
 
 export function configureNews() {
-  logging.info('Configuring News');
   const configuration = readNewsConfiguration();
+  logging.info('Configuring News');
 
   // Cleanup old news
+  logging.info('Deleting old news...');
   database.news.deleteMany();
 
   // Create news entries
+  logging.info('Creating news...');
   database.news.createMany({
     data: configuration.news.map((news, newsIndex) => ({
       name: newsIndex.toString(),
