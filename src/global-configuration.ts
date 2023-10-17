@@ -5,11 +5,17 @@ type GlobalConfiguration = {
   news: {
     enabled: boolean;
   };
+  tunables: {
+    enabled: boolean;
+  };
 };
 
 const GLOBAL_CONFIGURATION_NAME = 'settings';
 const DEFAULT_GLOBAL_CONFIGURATION: GlobalConfiguration = {
   news: {
+    enabled: false,
+  },
+  tunables: {
     enabled: false,
   },
 };
@@ -29,6 +35,10 @@ export function getGlobalConfiguration(): GlobalConfiguration {
     news: {
       ...DEFAULT_GLOBAL_CONFIGURATION.news,
       ...content.news,
+    },
+    tunables: {
+      ...DEFAULT_GLOBAL_CONFIGURATION.tunables,
+      ...content.tunables,
     },
   };
 }

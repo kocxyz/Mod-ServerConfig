@@ -10,5 +10,7 @@ if (globalConfiguration.news.enabled) {
   configureNews();
 }
 
-logging.info('');
-configureTunables();
+if (globalConfiguration.tunables.enabled) {
+  logging.info('');
+  configureTunables();
+}
