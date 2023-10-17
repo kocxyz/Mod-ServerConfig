@@ -19,7 +19,7 @@ function createDefaultGlobalConfiguration() {
 }
 
 export function getGlobalConfiguration(): GlobalConfiguration {
-  logging.info('Loading Settings');
+  logging.info('Loading Global Settings...');
   const created = createDefaultGlobalConfiguration();
   if (created) {
     logging.info('Created default Settings');

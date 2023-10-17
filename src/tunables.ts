@@ -78,8 +78,7 @@ function readTunablesConfiguration(): TunablesConfiguration {
 }
 
 export function configureTunables() {
-  logging.info('Configuring Tunables');
-
+  logging.info('\u001b[1mConfiguring Tunables\u001b[0m');
   const configuration = readTunablesConfiguration();
   const tunables = {
     k_backend_tunable_max_crew_members: configuration.social.max_members_per_crew,
@@ -93,7 +92,9 @@ export function configureTunables() {
     k_backend_tunable_quickplay_bots_start_seconds: configuration.matchmaking.quickplay_bots_start_seconds,
   };
 
+  logging.info('Setting Tunables:');
   Object.entries(tunables).forEach(([key, value]) => {
+    logging.info(`  ${key}: ${value}`);
     database.stats_global.update({
       where: {
         key: key,

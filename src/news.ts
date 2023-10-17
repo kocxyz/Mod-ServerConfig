@@ -125,8 +125,8 @@ function readNewsConfiguration(): NewsConfiguration {
 }
 
 export function configureNews() {
+  logging.info('\u001b[1mConfiguring News\u001b[0m');
   const configuration = readNewsConfiguration();
-  logging.info('Configuring News');
 
   // Cleanup old news
   logging.info('Deleting old news...');
